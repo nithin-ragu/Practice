@@ -3,6 +3,8 @@ package org.test;
 import static io.restassured.RestAssured.*;
 
 import io.restassured.RestAssured;
+import io.restassured.http.Header;
+import io.restassured.http.Headers;
 import io.restassured.response.Response;
 
 public class Practice {
@@ -16,5 +18,12 @@ public class Practice {
 
 		String asPrettyString = response.getBody().asPrettyString();
 		System.out.println(asPrettyString);
+
+		Headers headers = response.getHeaders();
+
+		for (Header header : headers) {
+
+			System.out.println(header);
+		}
 	}
 }
